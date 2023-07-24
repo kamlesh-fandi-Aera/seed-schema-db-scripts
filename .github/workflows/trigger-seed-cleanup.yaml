@@ -1,14 +1,9 @@
 name: "trigger-seed-cleanup"
-run-name: "Dev build: ${{ github.ref_name }}"
 
 on:
-  workflow_dispatch:
-    inputs:
-      # Tracking inputs
-      DB-hostName:
-        description: 'Enter DB instance host'
-        type: string
-
+  push:
+    branches:
+      - main
 
 jobs:
   build:
