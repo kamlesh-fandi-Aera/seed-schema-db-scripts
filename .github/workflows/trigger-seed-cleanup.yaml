@@ -8,20 +8,20 @@ on:
       DB-hostName:
         description: 'Enter DB instance host'
         type: string
-env:
-  COMPONENT_NAME: "seed-schema-db-scripts"
+
 
 jobs:
-  tracking:
-    name: "Golden Seed Data cleanup"
-    uses: aeratechnology/github-actions/.github/workflows/tracking-job.yaml@master
-    with:
-      upstream-job: ${{ inputs.upstream-job }}
-      trace-id: ${{ inputs.trace-id }}
+  build:
+    runs-on: ubuntu-latest
 
-  build-and-publish:
-    name: "discovery-be"
-    uses: ./.github/workflows/build-and-publish.yaml
-    with:
-      pre-release-label: "dev"
-    secrets: inherit
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Replace '3.x' with the Python version you want to use (e.g., '3.9')
+
+      - name: Execute Python script
+        run: python3 /Users/aera/Documents/seed-schema-db-scripts-mylocal/pythonLib
