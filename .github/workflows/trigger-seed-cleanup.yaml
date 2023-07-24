@@ -1,4 +1,4 @@
-name: "Dev build"
+name: "trigger-seed-cleanup"
 run-name: "Dev build: ${{ github.ref_name }}"
 
 on:
