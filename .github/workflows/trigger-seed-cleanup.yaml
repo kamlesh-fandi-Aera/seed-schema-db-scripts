@@ -1,0 +1,32 @@
+name: "Dev build"
+run-name: "Dev build: ${{ github.ref_name }}"
+
+on:
+  workflow_dispatch:
+    inputs:
+      # Tracking inputs
+      upstream-job:
+        description: 'The url of the job that triggered the workflow. (Leave empty for manual user trigger)'
+        type: string
+
+      trace-id:
+        description: 'A unique identifier sent by the workflow that triggered this one. (Leave empty for manual user trigger)'
+        type: string
+
+env:
+  COMPONENT_NAME: "discovery-be"
+
+jobs:
+  tracking:
+    name: "Tracking"
+    uses: aeratechnology/github-actions/.github/workflows/tracking-job.yaml@master
+    with:
+      upstream-job: ${{ inputs.upstream-job }}
+      trace-id: ${{ inputs.trace-id }}
+
+  build-and-publish:
+    name: "discovery-be"
+    uses: ./.github/workflows/build-and-publish.yaml
+    with:
+      pre-release-label: "dev"
+    secrets: inherit
