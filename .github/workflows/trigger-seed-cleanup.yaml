@@ -1,4 +1,4 @@
-name: "trigger-seed-cleanup"
+name: "trigger-seed-cleanups"
 
 on:
   push:
