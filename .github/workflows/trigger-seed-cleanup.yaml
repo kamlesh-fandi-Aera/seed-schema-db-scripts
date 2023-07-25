@@ -3,15 +3,20 @@ name: "trigger-seed-cleanups"
 on:
   push:
     branches:
-      - seed-schema-testing
+      - main
+
 jobs:
   build:
-    runs-on: python3
+    runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: Install Python dependencies
-        run: pip install mysql-connector-python
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Replace '3.x' with the Python version you want to use (e.g., '3.9')
 
       - name: Execute Python script
         run: python3 ./.github/workflows/goldenSeedClenup.py
