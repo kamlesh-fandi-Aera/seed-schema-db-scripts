@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - seed-schema-testing
-
 jobs:
   build:
     runs-on: python3
