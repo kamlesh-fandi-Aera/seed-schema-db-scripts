@@ -3,7 +3,7 @@ name: "trigger-seed-cleanups"
 on:
   push:
     branches:
-      - main
+      - seed-schema-testing
 
 jobs:
   build:
