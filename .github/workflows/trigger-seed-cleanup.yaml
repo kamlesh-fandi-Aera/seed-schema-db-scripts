@@ -7,16 +7,16 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: python3
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - name: "Build setup"
+        id: build-setup
+        uses: aeratechnology/github-actions/BuildSetup@master
         with:
-          python-version: '3.x'  # Replace '3.x' with the Python version you want to use (e.g., '3.9')
+          component-name: "${{ env.COMPONENT_NAME }}"
+          pre-release-label: "${{ inputs.pre-release-label }}"
+
       - name: Install MySQL client
         run: sudo apt-get install -y libmysqlclient-dev
 
