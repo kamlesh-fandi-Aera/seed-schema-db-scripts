@@ -22,7 +22,7 @@ try:
         dml_query = """
          INSERT INTO fusionops.md_recent
        (objectid, mainuserid, projectid, objecttype, `datetime`)
-         VALUES('010101', 'BA5B547E_E9F1_4B88_B6D9_FC04ABD3957A', 'BE8BA2A0_2B4C_48BA_B0A8_714E9654821A', 'discovery', '2020-05-13 00:12:27');
+         VALUES('010103', 'BA5B547E_E9F1_4B88_B6D9_FC04ABD3957B', 'BE8BA2A0_2B4C_48BA_B0A8_714E9654821N', 'discovery', '2020-05-13 00:12:56');
         """
 
         # Execute the DML statement
