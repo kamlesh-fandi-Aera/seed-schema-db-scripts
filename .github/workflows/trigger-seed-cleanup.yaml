@@ -14,6 +14,5 @@ jobs:
       - name: Install Python dependencies
         run: pip install mysql-connector-python
 
-
       - name: Execute Python script
         run: python3 ./.github/workflows/goldenSeedClenup.py
